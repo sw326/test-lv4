@@ -12,15 +12,14 @@ const Login = () => {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://3.38.191.164/login", {
+      const {data} = await axios.post("https://moneyfulpublicpolicy.co.kr/login", {
         id,
         password,
       });
-        console.log("response", response);
-      if (response.status === 201) {
+      if (data.success) {
         //토큰 저장하기 > 로컬스토리지에
 
-        login(response.data.token);
+        login(data.accessToken);
         nav("/");
       } else {
         alert("Login failed");
