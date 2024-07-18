@@ -13,12 +13,12 @@ import { useContext } from 'react';
 
 const PrivateRoute = ({ element: Element, ...rest }) => {
     const { isAuthenticated } = useContext(AuthContext);
-    return isAuthenticated ? <Element {...rest} /> : <Navigate to="/test" />;
+    return isAuthenticated ? <Element {...rest} /> : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ element: Element, ...rest }) => {
     const { isAuthenticated } = useContext(AuthContext);
-    return !isAuthenticated ? <Element {...rest} /> : <Navigate to="/login" />;
+    return !isAuthenticated ? <Element {...rest} /> : <Navigate to="/test" />;
 };
 
 const SharedRouter = () => {
